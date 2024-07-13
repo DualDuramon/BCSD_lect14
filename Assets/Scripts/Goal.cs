@@ -9,7 +9,17 @@ public class Goal : MonoBehaviour
     {
         if (other.transform.CompareTag("Player")) 
         {
-            SceneManager.LoadScene("NextScene");
+            //SceneManager.LoadScene("NextScene");
+            StartCoroutine(LoadScene());
+        }
+    }
+
+    IEnumerator LoadScene()
+    {
+        var loadScene = SceneManager.LoadSceneAsync("NextScene");
+        while (!loadScene.isDone)
+        {
+            yield return null;
         }
     }
 }
