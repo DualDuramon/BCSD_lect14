@@ -14,12 +14,12 @@ public class Player : MonoBehaviour
         myAgent = GetComponent<NavMeshAgent>();
     }
 
-    void Update() {
-        if (Input.GetKeyDown(KeyCode.Space) && !isMoving)
+    public void MoveStart()
+    {
+        if (!isMoving)
         {
             myAgent.destination = goal.position;
             isMoving = true;
         }
-
     }
 }
